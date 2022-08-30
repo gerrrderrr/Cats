@@ -25,7 +25,7 @@ public class Main {
         List<Cats> posts = mapper.readValue(
                 response.getEntity().getContent(),
                 new TypeReference<>() {});
-        posts.stream().filter(value -> value.getUpvotes() != null && !value.getUpvotes().equals("0"))
+        posts.stream().filter(value -> value.getUpvotes() != 0)
                 .forEach(System.out::println);
         
         response.close();
